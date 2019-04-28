@@ -1,0 +1,16 @@
+https://ss64.com/ps/rename-item.html
+
+
+Examples
+
+Rename a file:
+
+PS C:\> rename-item -path c:\docs\dump.csv -newname Report.xls
+
+Rename all .TXT files as .LOG files in the current directory:
+
+PS C:\> get-childitem -Path *.txt | rename-item -NewName {$_.name -replace ".txt",".log"}
+
+Rename all the files in the current directory, prefixing each with "Top Secret - ":
+
+PS C:\> get-childitem | % { rename-item $_ "Top Secret - $_"} 
